@@ -8,4 +8,4 @@ buildUranium:
   services: 
     - ultimaker/cura-build-environment
   script: 
-    - build.sh
+    - ./build.sh
