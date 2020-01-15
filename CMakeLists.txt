@@ -1,6 +1,6 @@
 project(uranium NONE)
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.6)
 
 message(STATUS ${CMAKE_MODULE_PATH})
 
