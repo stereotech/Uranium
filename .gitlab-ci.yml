@@ -7,3 +7,6 @@ buildUranium:
   image: ultimaker/cura-build-environment
   script: 
     - docker/build.sh
+  artifacts:
+    paths:
+      - build
