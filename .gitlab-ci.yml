@@ -6,4 +6,4 @@ buildUranium:
   stage: build
   image: ultimaker/cura-build-environment
   script: 
-    - ./build.sh
+    - docker/build.sh

@@ -19,5 +19,5 @@ cmake3 \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_PREFIX_PATH="${CURA_BUILD_ENV_PATH}" \
     -DBUILD_TESTS=ON \
-    .
+    ..
 make
