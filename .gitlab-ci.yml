@@ -2,11 +2,19 @@ stages:
   - build
   - test
 
+image: ultimaker/cura-build-environment
+
 buildUranium:
   stage: build
-  image: ultimaker/cura-build-environment
   script: 
     - docker/build.sh
   artifacts:
     paths:
       - build
+
+testUranium:
+  stage: test
+  script:
+    - ctest3 --output-on-failure -T Test
+
+
