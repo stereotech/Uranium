@@ -4,6 +4,8 @@ stages:
 
 buildUranium:
   stage: build
-  image: ultimaker/cura-build-environment
+  image: ubuntu:latest
+  services: 
+    - ultimaker/cura-build-environment
   script: 
     - ./build.sh
