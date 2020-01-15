@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Abort at the first error.1
+# Abort at the first error
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
@@ -19,5 +19,5 @@ cmake3 \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_PREFIX_PATH="${CURA_BUILD_ENV_PATH}" \
     -DBUILD_TESTS=ON \
-    ..
+    .
 make
