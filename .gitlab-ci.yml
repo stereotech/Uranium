@@ -16,5 +16,4 @@ testUranium:
   stage: test
   script:
     - docker/test.sh
-
-
+  allow_failure: true
