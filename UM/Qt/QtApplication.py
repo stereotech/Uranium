@@ -124,7 +124,7 @@ class QtApplication(QApplication, Application):
 
         self.setAttribute(Qt.AA_UseDesktopOpenGL)
         major_version, minor_version, profile = OpenGLContext.detectBestOpenGLVersion()
-
+        self.setStyle("fusion")
         if major_version is None and minor_version is None and profile is None:
             Logger.log("e", "Startup failed because OpenGL version probing has failed: tried to create a 2.0 and 4.1 context. Exiting")
             QMessageBox.critical(None, "Failed to probe OpenGL",
