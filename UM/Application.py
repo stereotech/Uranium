@@ -86,6 +86,7 @@ class Application:
 
         self._controller = None #type: Controller
         self._backend = None #type: Backend
+        self._backends = [] #type: List[Backend]
         self._output_device_manager = None #type: OutputDeviceManager
         self._operation_stack = None #type: OperationStack
 
@@ -144,7 +145,9 @@ class Application:
 
         i18nCatalog.setApplication(self)
 
-        PluginRegistry.addType("backend", self.setBackend)
+        #TODO: multiple backend functionality
+        #PluginRegistry.addType("backend", self.setBackend)
+        #PluginRegistry.addType("backend", self.addBackend)
         PluginRegistry.addType("logger", Logger.addLogger)
         PluginRegistry.addType("extension", self.addExtension)
 
@@ -378,6 +381,12 @@ class Application:
     ##  Get the application's main thread.
     def getMainThread(self) -> threading.Thread:
         return self._main_thread
+
+    def addBackend(self, backend: "Backend") -> None:
+        self._backends.append(backend)
+
+    def getBackends(self) -> List["Backend"]:
+        return self._backends
 
     def addExtension(self, extension: "Extension") -> None:
         self._extensions.append(extension)
