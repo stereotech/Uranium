@@ -39,6 +39,7 @@ class Backend(PluginObject):
 
         self._message_handlers = {}
 
+        self._current = False
         self._socket = None
         self._port = 49674
         self._process = None # type: Optional[subprocess.Popen]
@@ -93,6 +94,9 @@ class Backend(PluginObject):
             line_str = line.decode("latin1") #Latin-1 as a fallback since it can never give decoding errors. All characters are 1 byte.
         Logger.log("d", "[Backend] " + line_str.strip())
         self._backend_log.append(line)
+
+    def setCurrent(self, current = True):
+        self._current = current
 
     ##  Get the logging messages of the backend connection.
     #   \returns  
