@@ -12,6 +12,7 @@ from UM.Logger import Logger
 import numpy
 import math
 import numbers
+import trimesh
 
 ##  Builds new meshes by adding primitives.
 #
@@ -695,6 +696,18 @@ class MeshBuilder:
             vertex_count = self.getVertexCount()
             for i in range(1, 6):
                 self.setVertexColor(vertex_count - i, color)
+
+    def addSphere(self, radius, sections = 3, center= Vector(0, 0, 0), color = None):
+       tsphere = trimesh.primitives.Sphere(radius=radius, center=center.getData(), subdivisions=sections)
+       self.setVertices(numpy.asarray(tsphere.vertices, dtype=numpy.float32))
+       self.setIndices(numpy.asarray(tsphere.faces, dtype=numpy.int32))
+       if color:  # If we have a colour, add a colour to all of the vertices.
+           vertex_count = self.getVertexCount()
+           for i in range(vertex_count-1):
+               self.setVertexColor(i, color)
+       return True
+
+
 
     ##  Create a mesh from points that represent a convex hull.
     #   \param hull_points list of xy values
